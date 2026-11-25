@@ -1,0 +1,19 @@
+index.html
+  s_a441d67adafc73::t_7f9236240e9192 218-219,419-422,424-425,428-429,431-573,575,605,659,992
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e71da0d0b22ef5b50ebf644e95f6cf288f000da0",
+  "prompts": {},
+  "sessions": {
+    "s_a441d67adafc73": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a21224-8b93-7ea0-81ba-174c73ef30dd",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "邑凡 <yaoyifan.yyf@antgroup.com>"
+    }
+  }
+}
