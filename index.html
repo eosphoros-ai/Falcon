@@ -215,6 +215,8 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
+        #leaderboard .table-wrapper + h3 { margin-top: 2rem; }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -238,19 +240,6 @@
 
         .model-name { font-weight: 600; color: var(--dark); }
         .model-meta { font-size: 0.8rem; color: #656d76; display: block; margin-top: 2px; }
-
-        .tag {
-            display: inline-block;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            line-height: 1;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-        .tag-sota { background: #dafbe1; color: #1a7f37; border: 1px solid rgba(26,127,55,0.2); }
-        .tag-new { background: #ddf4ff; color: #0969da; border: 1px solid rgba(9,105,218,0.2); } 
 
         .rank-cell { font-weight: 700; color: #6e7781; text-align: center; width: 60px; }
         .rank-1 { background-color: var(--gold-bg) !important; }
@@ -427,17 +416,163 @@
             <span lang="en">🏆 Leaderboard</span>
             <span lang="zh">🏆 排行榜</span>
         </h2>
+        <h3 id="agent-results">
+            <span lang="en">Ant Group NL2SQL Agent Results</span>
+            <span lang="zh">蚂蚁集团 NL2SQL Agent 评测结果</span>
+        </h3>
         <p lang="en">
-            Current evaluation results on the Falcon benchmark (500 Questions). <br>
-            Sorted by <strong>Execution Accuracy (EX)</strong>. "VES" denotes Valid Executable SQL rate.
+            Each model is shown with its highest <strong>Execution Accuracy (EX)</strong> from formal 500-question Agent runs.
+            The evaluation dataset and Agent configuration varied across runs. VES is the percentage of questions with executable SQL.
         </p>
         <p lang="zh">
-            Falcon 基准测试（500题）的当前评估结果。<br>
-            按 <strong>执行准确率 (Execution Accuracy, EX)</strong> 排序。"VES" 代表有效可执行 SQL 比率。
+            每个模型展示正式 500 题 Agent 评测中<strong>执行准确率（EX）</strong>最高的一次。
+            评测集和 Agent 配置随轮次调整。VES 表示生成的 SQL 可执行的题目占比。
         </p>
-        
+
         <div class="table-wrapper">
-            <table>
+            <table aria-labelledby="agent-results">
+                <thead>
+                    <tr>
+                        <th scope="col" class="rank-cell">
+                            <span lang="en">Rank</span>
+                            <span lang="zh">排名</span>
+                        </th>
+                        <th scope="col">
+                            <span lang="en">Model</span>
+                            <span lang="zh">模型</span>
+                        </th>
+                        <th scope="col">
+                            <span lang="en">Execution Accuracy (EX)</span>
+                            <span lang="zh">执行准确率 (EX)</span>
+                        </th>
+                        <th scope="col">
+                            <span lang="en">Executable Rate (VES)</span>
+                            <span lang="zh">可执行率 (VES)</span>
+                        </th>
+                        <th scope="col">
+                            <span lang="en">Date</span>
+                            <span lang="zh">日期</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="rank-1">
+                        <td class="rank-cell">1 🏆</td>
+                        <td><span class="model-name">GLM-5.1</span></td>
+                        <td>
+                            <div class="score-primary">81.8%</div>
+                            <div class="score-secondary">409 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">97.4%</div>
+                            <div class="score-secondary">487 / 500</div>
+                        </td>
+                        <td><time datetime="2026-06-15">2026-06-15</time></td>
+                    </tr>
+                    <tr class="rank-2">
+                        <td class="rank-cell">2 🥈</td>
+                        <td><span class="model-name">Kimi-K2.5</span></td>
+                        <td>
+                            <div class="score-primary">67.6%</div>
+                            <div class="score-secondary">338 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">99.0%</div>
+                            <div class="score-secondary">495 / 500</div>
+                        </td>
+                        <td><time datetime="2026-07-30">2026-07-30</time></td>
+                    </tr>
+                    <tr class="rank-3">
+                        <td class="rank-cell">3 🥉</td>
+                        <td><span class="model-name">GLM-5.2</span></td>
+                        <td>
+                            <div class="score-primary">61.8%</div>
+                            <div class="score-secondary">309 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">88.0%</div>
+                            <div class="score-secondary">440 / 500</div>
+                        </td>
+                        <td><time datetime="2026-07-15">2026-07-15</time></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">4</td>
+                        <td><span class="model-name">DeepSeek-V4-Flash-0731</span></td>
+                        <td>
+                            <div class="score-primary">57.8%</div>
+                            <div class="score-secondary">289 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">97.2%</div>
+                            <div class="score-secondary">486 / 500</div>
+                        </td>
+                        <td><time datetime="2026-08-17">2026-08-17</time></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">5</td>
+                        <td><span class="model-name">DeepSeek-V3.1</span></td>
+                        <td>
+                            <div class="score-primary">53.6%</div>
+                            <div class="score-secondary">268 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">97.4%</div>
+                            <div class="score-secondary">487 / 500</div>
+                        </td>
+                        <td><time datetime="2026-02-07">2026-02-07</time></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">6</td>
+                        <td><span class="model-name">Claude-Sonnet-4.5</span></td>
+                        <td>
+                            <div class="score-primary">51.8%</div>
+                            <div class="score-secondary">259 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">99.2%</div>
+                            <div class="score-secondary">496 / 500</div>
+                        </td>
+                        <td><time datetime="2026-01-04">2026-01-04</time></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">7</td>
+                        <td><span class="model-name">DeepSeek-V3.2</span></td>
+                        <td>
+                            <div class="score-primary">51.2%</div>
+                            <div class="score-secondary">256 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">94.0%</div>
+                            <div class="score-secondary">470 / 500</div>
+                        </td>
+                        <td><time datetime="2026-03-02">2026-03-02</time></td>
+                    </tr>
+                    <tr>
+                        <td class="rank-cell">8</td>
+                        <td><span class="model-name">Qwen3-Coder-480B-A35B-Instruct</span></td>
+                        <td>
+                            <div class="score-primary">33.0%</div>
+                            <div class="score-secondary">165 / 500</div>
+                        </td>
+                        <td>
+                            <div class="score-primary">72.8%</div>
+                            <div class="score-secondary">364 / 500</div>
+                        </td>
+                        <td><time datetime="2025-12-17">2025-12-17</time></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="original-results">
+            <span lang="en">Original Falcon Benchmark Results</span>
+            <span lang="zh">Falcon 原版基准测试结果</span>
+        </h3>
+        <p lang="en">Results and ranks from the original 500-question Falcon benchmark release.</p>
+        <p lang="zh">以下为 Falcon 原版 500 题基准测试发布时的成绩和排名。</p>
+
+        <div class="table-wrapper">
+            <table aria-labelledby="original-results">
                 <thead>
                     <tr>
                         <th class="rank-cell">
@@ -467,7 +602,7 @@
                     <tr class="rank-1">
                         <td class="rank-cell">1 🏆</td>
                         <td>
-                            <span class="model-name">Falcon-Agent + DeepSeek R1 <span class="tag tag-sota">SOTA</span></span>
+                            <span class="model-name">Falcon-Agent + DeepSeek R1</span>
                             <span class="model-meta">Ant Group</span>
                         </td>
                         <td>
@@ -521,7 +656,7 @@
                     <tr>
                         <td class="rank-cell">4</td>
                         <td>
-                            <span class="model-name">Falcon-Agent + Claude 3.7 Sonnet (Thinking) <span class="tag tag-new">NEW</span></span>
+                            <span class="model-name">Falcon-Agent + Claude 3.7 Sonnet (Thinking)</span>
                             <span class="model-meta">Ant Group</span>
                         </td>
                         <td>
